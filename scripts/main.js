@@ -1,5 +1,6 @@
 import * as THREE from "../libs/three123/three.module.js";
 import { ARButton } from "../libs/jsm/ARButton.js";
+import { loadGLTF } from "../libs/jsm/GLTFLoader.js";
 import { loadModel } from "./modelLoader.js";
 import { TransformControls } from "./transformControls.js";
 import { HitTestManager } from "./hitTestManager.js";
