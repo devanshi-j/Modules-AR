@@ -15,11 +15,11 @@ export const itemCategories = {
         { name: "chair2", height: 0.5 }
     ],
     sofa: [
-        { name: "sofa3", height: 0.5 },
-        { name: "sofa2", height: 0.5 },
-        { name: "sofa3", height: 0.5 },
-        { name: "sofa2", height: 0.5 },
-        { name: "sofa2", height: 0.5 }
+        { name: "sofa3", height: 1.5 },
+        { name: "sofa2", height: 1.5 },
+        { name: "sofa3", height: 1.5 },
+        { name: "sofa2", height: 1.5 },
+        { name: "sofa2", height: 1.5 }
     ],
    
     vase: [
@@ -30,10 +30,10 @@ export const itemCategories = {
         { name: "vase5", height: 0.5 }
     ],
     rug: [
-        { name: "rug1", height: 0.5 },
-        { name: "rug2", height: 0.5 },
-        { name: "rug3", height: 0.5 },
-        { name: "rug4", height: 0.5 },
-        { name: "rug5", height: 0.5 }
+        { name: "rug1", height: 1.0 },
+        { name: "rug2", height: 1.0 },
+        { name: "rug3", height: 1.0 },
+        { name: "rug4", height: 1.0 },
+        { name: "rug5", height: 1.0 }
     ],
 };
