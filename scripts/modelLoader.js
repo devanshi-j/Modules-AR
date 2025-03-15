@@ -10,24 +10,31 @@ export async function normalizeModel(obj, height) {
     obj.position.set(-center.x, -center.y, -center.z);
 }
 
-export async function loadModel(category, itemName, height = 0.5) {
+export async function loadModel(category, itemName) {
     const baseModelPath = `../assets/models/${category}/${itemName}`;
     const glbPath = `${baseModelPath}/${itemName}.glb`;
     const gltfPath = `${baseModelPath}/scene.gltf`;
-
     try {
         const modelPath = await getExistingFile(glbPath, gltfPath);
         if (!modelPath) {
             console.warn(`No model found for ${category}/${itemName}`);
             return null;
         }
-
         console.log(`Loading model: ${modelPath}`);
         const model = await loadGLTF(modelPath);
-        normalizeModel(model.scene, height);
-
+        
+        // Create a group and add the model to it
         const item = new THREE.Group();
         item.add(model.scene);
+        
+        // Set up shadows
+        model.scene.traverse((node) => {
+            if (node.isMesh) {
+                node.castShadow = true;
+                node.receiveShadow = true;
+            }
+        });
+        
         return item;
     } catch (error) {
         console.error(`Error loading model ${category}/${itemName}:`, error);
@@ -41,13 +48,11 @@ async function getExistingFile(glbPath, gltfPath) {
         console.log(`GLB found: ${glbPath}`);
         return glbPath;
     }
-
     console.log(`Checking GLTF: ${gltfPath}`);
     if (await fileExists(gltfPath)) {
         console.log(`GLTF found: ${gltfPath}`);
         return gltfPath;
     }
-
     console.warn(`Neither GLB nor GLTF found.`);
     return null;
 }
@@ -62,7 +67,6 @@ async function fileExists(url) {
         return false;
     }
 }
-
 export function setOpacityForSelected(models, opacity) {
     console.log(`setOpacityForSelected(${opacity}) called. Selected models:`, models);
 
