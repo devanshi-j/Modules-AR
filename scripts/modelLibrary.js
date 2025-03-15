@@ -1,4 +1,12 @@
 export const itemCategories = {
+    table: [
+        { name: "table2", height: 0.5 },
+        { name: "table2", height: 0.5 },
+        { name: "table3", height: 0.5 },
+        { name: "table4", height: 0.5 },
+        { name: "table5", height: 0.5 }
+    ],
+    
     chair: [
         { name: "chair4", height: 0.5 },
         { name: "chair2", height: 0.5 },
@@ -13,13 +21,7 @@ export const itemCategories = {
         { name: "sofa2", height: 0.5 },
         { name: "sofa2", height: 0.5 }
     ],
-    table: [
-        { name: "table2", height: 0.5 },
-        { name: "table2", height: 0.5 },
-        { name: "table3", height: 0.5 },
-        { name: "table4", height: 0.5 },
-        { name: "table5", height: 0.5 }
-    ],
+   
     vase: [
         { name: "vase1", height: 0.5 },
         { name: "vase2", height: 0.5 },
